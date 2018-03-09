@@ -1,0 +1,25 @@
+n = float(input())
+fromV = input()
+toV = input()
+
+usd = 1.79549
+gbp = 2.53405
+eur = 1.95583
+
+tmp = n
+
+if fromV == 'USD':
+    tmp = n * usd
+elif fromV == 'GBP':
+    tmp = n * gbp
+elif fromV == 'EUR':
+    tmp = n * eur
+
+if toV == 'USD':
+    tmp /= usd
+elif toV == 'GBP':
+    tmp /= gbp
+elif toV == 'EUR':
+    tmp /= eur
+
+print('{0:.2f}'.format(tmp), toV)
