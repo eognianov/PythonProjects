@@ -1,2 +1,8 @@
 /PythonFundamentals/6.Files-and-Dirs/Folder Size
 *.txt
+.idea
+venv
+__pycache__
+migrations
+db.sqlite3
+demo_terminal_python
