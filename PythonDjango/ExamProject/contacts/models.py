@@ -1,4 +1,8 @@
 from django.db import models
+from rest_framework.authtoken.models import Token
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 # Create your models here.
@@ -19,3 +23,13 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.get_or_create(user=instance)
+
+
+subscribe_function_to_post_save_of_user = receiver(post_save, sender=settings.AUTH_USER_MODEL)
+create_auth_token = subscribe_function_to_post_save_of_user(create_auth_token)
