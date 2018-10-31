@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'articles.apps.ArticlesConfig',
     'contacts',
     'rest_framework',
-    'rest_framework.authtoken'
+    'api',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +131,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     )
 }
+
+AUTH_USER_MODEL = 'accounts.UserAccount'

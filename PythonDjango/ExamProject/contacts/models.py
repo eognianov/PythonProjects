@@ -19,17 +19,8 @@ class Contact(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey('accounts.UserAccount', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.first_name + " " + self.last_name
 
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.get_or_create(user=instance)
-
-
-subscribe_function_to_post_save_of_user = receiver(post_save, sender=settings.AUTH_USER_MODEL)
-create_auth_token = subscribe_function_to_post_save_of_user(create_auth_token)
