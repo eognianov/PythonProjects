@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'contacts',
     'rest_framework',
     'api',
-    'accounts'
+    'accounts',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
