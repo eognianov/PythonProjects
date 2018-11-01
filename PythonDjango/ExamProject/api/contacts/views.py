@@ -4,7 +4,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import permissions
 
-from .permissions import IsAuthorOrReadOnly
+from .permissions import IsAuthorOrReadOnly, IsPrivate
 # Create your views here.
 
 
@@ -26,6 +26,8 @@ class ContactsList(generics.ListCreateAPIView):
 class ContactDetail(generics.RetrieveAPIView):
     queryset = Contact.objects.all()
     serializer_class = FullContactSerializer
+
+    permission_classes = (IsPrivate, IsAuthorOrReadOnly)
 
 
 class ContactEdit(generics.RetrieveUpdateDestroyAPIView):
