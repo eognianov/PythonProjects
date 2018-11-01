@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'accounts',
-    'rest_framework_swagger'
+    'rest_framework_swagger',
+    'tasks',
+    'meetings',
 ]
 
 MIDDLEWARE = [

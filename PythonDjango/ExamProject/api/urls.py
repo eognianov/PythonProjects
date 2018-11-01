@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^auth/', include('rest_framework.urls')),
     url(r'^users/', include('api.accounts.urls')),
     url(r'^contacts/', include('api.contacts.urls')),
+    url(r'^tasks/', include('api.tasks.urls')),
+    url(r'^meetings/', include('api.meetings.urls')),
     url(r'^$', api_layout),
     url(r'^swagger/$', swagger_schema_view),
 ]
