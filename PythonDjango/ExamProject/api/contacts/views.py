@@ -27,7 +27,7 @@ class ContactDetail(generics.RetrieveAPIView):
     queryset = Contact.objects.all()
     serializer_class = FullContactSerializer
 
-    permission_classes = (IsPrivate, IsAuthorOrReadOnly)
+    permission_classes = (IsPrivate, )
 
 
 class ContactEdit(generics.RetrieveUpdateDestroyAPIView):
@@ -35,3 +35,5 @@ class ContactEdit(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = FullContactSerializer
 
     permission_classes = (IsAuthorOrReadOnly, )
+
+
