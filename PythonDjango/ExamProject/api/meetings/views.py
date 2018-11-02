@@ -1,3 +1,5 @@
+from django.utils.datetime_safe import date
+
 from meetings.models import Meeting
 from .serializers import BasicMeetingSerializer, FullMeetingSerializer
 from rest_framework import generics
@@ -21,8 +23,9 @@ class MeetingList(generics.ListCreateAPIView):
 
 
 class TodayList(generics.ListAPIView):
-    # TODO: List only those meetings thar are for today! For logged user
-    queryset = Meeting.objects.all()
+    today_date = date.today()
+
+    queryset = Meeting.objects.filter(date=today_date)
     serializer_class = BasicMeetingSerializer
 
     permission_classes = (IsAuthenticated, )

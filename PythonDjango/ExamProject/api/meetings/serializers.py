@@ -4,7 +4,7 @@ from meetings.models import Meeting
 
 def meeting_serializer_factory(type='basic'):
     if type == 'basic':
-        res_fields = 'pk name author'.split()
+        res_fields = 'pk name date author'.split()
     elif type == 'full':
         res_fields = 'pk name place date start_at duration is_private created_at last_modified author'.split()
 

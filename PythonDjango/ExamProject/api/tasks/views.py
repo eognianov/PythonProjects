@@ -1,3 +1,5 @@
+from django.contrib.auth import get_user_model
+
 from tasks.models import Task
 from .serializers import BasicTaskSerializer, FullTaskSerializer
 from rest_framework import generics
@@ -21,7 +23,6 @@ class TaskList(generics.ListCreateAPIView):
 
 
 class ToDoList(generics.ListAPIView):
-    # TODO: Only task for logged user
     queryset = Task.objects.filter(is_finished=False, )
     serializer_class = BasicTaskSerializer
 

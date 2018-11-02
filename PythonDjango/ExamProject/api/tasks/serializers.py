@@ -4,7 +4,7 @@ from tasks.models import Task
 
 def task_serializer_factory(type='basic'):
     if type == 'basic':
-        res_fields = 'pk name author'.split()
+        res_fields = 'pk name priority is_finished author'.split()
     elif type == 'full':
         res_fields = 'pk name description is_finished priority is_private created_at last_modified author'.split()
 

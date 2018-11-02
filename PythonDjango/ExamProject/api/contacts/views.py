@@ -2,12 +2,10 @@ from contacts.models import Contact
 from .serializers import BasicContactSerializer, FullContactSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import permissions
-
 from .permissions import IsAuthorOrReadOnly, IsPrivate
+
+
 # Create your views here.
-
-
 class ContactsList(generics.ListCreateAPIView):
     queryset = Contact.objects.all()
     serializer_class = BasicContactSerializer
